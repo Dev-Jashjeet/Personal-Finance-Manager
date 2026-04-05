@@ -47,4 +47,4 @@ Button.addEventListener("click" , (): void => {
         show2 = true;
     }
     return;
-})
+});
