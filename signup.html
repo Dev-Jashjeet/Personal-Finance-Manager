@@ -11,28 +11,35 @@
   />
 </head>
 <body>
+  <div class="loader-cont">
+    <div class="loader"></div>
+  </div>
   <div class="signup-container">
     <div class="signup-card">
       <h1>Sign Up</h1>
       <p>Create your account to get started</p>
 
-      <form>
+      <!-- <form> -->
         <div class="input-group">
           <input type="text" placeholder="Full Name" required />
+          <span class="spanErr">full name should be enter</span>
         </div>
 
         <div class="input-group">
           <input type="email" placeholder="Email" required />
+          <span class="spanErr">email is of xx234@gmail.com</span>
         </div>
 
         <div class="input-group password-group">
           <input type="password" placeholder="Password" required />
           <i class="fa-regular fa-eye"></i>
+          <span class="spanErr">password should contain characters,digits,special-symbols</span>
         </div>
 
         <div class="input-group password-group">
           <input type="password" placeholder="Confirm Password" required />
           <i class="fa-regular fa-eye"></i>
+          <span class="spanErr">password should contain characters,digits,special-symbols</span>
         </div>
 
         <div class="options">
@@ -43,7 +50,7 @@
         </div>
 
         <button type="submit">Create Account</button>
-      </form>
+      <!-- </form> -->
 
       <div class="bottom-text">
         Already have an account? <a href="#">Sign in</a>
@@ -51,7 +58,7 @@
     </div>
   </div>
 </body>
-  <script type="module" src="./js/signup.js"></script>
+<script type="module" src="./js/signup.js"></script>
 </html>
 
 <!-- HTML DONE -->
