@@ -2,3 +2,5 @@ Personal Finance Manager is a web-based application that helps users efficiently
 
 // PROJECT IS UNDER CONSTRUCTION ;)
 // CURRENTLY WORKING ON SIGNUP FILES
+
+*** SIGNUP PAGE DONE
