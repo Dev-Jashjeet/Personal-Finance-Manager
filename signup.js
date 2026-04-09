@@ -93,10 +93,12 @@ Button.addEventListener("click", () => {
 showPassImg[0].addEventListener("click", () => {
     if (show1) {
         Details[2].type = "text";
+        showPassImg[0].style.color = "#3f7df0";
         show1 = false;
     }
     else {
         Details[2].type = "password";
+        showPassImg[0].style.color = "#9aa4b2";
         show1 = true;
     }
     return;
@@ -104,10 +106,12 @@ showPassImg[0].addEventListener("click", () => {
 showPassImg[1].addEventListener("click", () => {
     if (show2) {
         Details[3].type = "text";
+        showPassImg[1].style.color = "#3f7df0";
         show2 = false;
     }
     else {
         Details[3].type = "password";
+        showPassImg[1].style.color = "#9aa4b2";
         show2 = true;
     }
     return;
