@@ -107,9 +107,11 @@ Button.addEventListener("click", (): void => {
 (showPassImg[0]! as HTMLElement).addEventListener("click", (): void => {
   if (show1) {
     (Details[2]! as HTMLInputElement).type = "text";
+    (showPassImg[0]! as HTMLElement).style.color = "#3f7df0";
     show1 = false;
   } else {
     (Details[2]! as HTMLInputElement).type = "password";
+    (showPassImg[0]! as HTMLElement).style.color = "#9aa4b2";
     show1 = true;
   }
   return;
@@ -118,9 +120,11 @@ Button.addEventListener("click", (): void => {
 (showPassImg[1]! as HTMLElement).addEventListener("click", (): void => {
   if (show2) {
     (Details[3]! as HTMLInputElement).type = "text";
+    (showPassImg[1]! as HTMLElement).style.color = "#3f7df0";
     show2 = false;
   } else {
     (Details[3]! as HTMLInputElement).type = "password";
+    (showPassImg[1]! as HTMLElement).style.color = "#9aa4b2";
     show2 = true;
   }
   return;
