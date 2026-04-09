@@ -49,7 +49,7 @@ Button.addEventListener("click", (): void => {
         }
         if (localStorage.getItem("usersDetails") === null) {
           const usersData: userData[] = [];
-          let user: Required<userData> = {
+          let user: userData = {
             name: (Details[0]! as HTMLInputElement).value,
             email: (Details[1]! as HTMLInputElement).value.trim(),
             password: (Details[2]! as HTMLInputElement).value.trim(),
