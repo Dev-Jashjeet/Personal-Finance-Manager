@@ -2,7 +2,6 @@ let Details = document.querySelectorAll("input");
 let Button = document.querySelector("button");
 let showPassImg = document.querySelectorAll("i");
 let loader = document.querySelector(".loader-cont");
-let sgninBtn = document.querySelector("a");
 let spanError = document.querySelectorAll(".spanErr");
 let show1 = true;
 let show2 = true;
@@ -116,14 +115,5 @@ showPassImg[1].addEventListener("click", () => {
     }
     return;
 });
-// VIEW PASSWORD FUNCTION ENDED
-// SIGN-IN FUNCTION
-sgninBtn.addEventListener("click", () => {
-    setTimeout(() => {
-        window.location.replace("index.html");
-        return;
-    }, 1000);
-    return;
-});
 export {};
-// SIGN-IN ENDED
+// VIEW PASSWORD FUNCTION ENDED
