@@ -2,7 +2,6 @@ let Details = document.querySelectorAll("input")!;
 let Button = document.querySelector("button")! as HTMLButtonElement;
 let showPassImg = document.querySelectorAll("i")!;
 let loader = document.querySelector(".loader-cont")! as HTMLDivElement;
-let sgninBtn = document.querySelector("a")! as HTMLAnchorElement;
 let spanError = document.querySelectorAll(".spanErr")!;
 let show1: boolean = true;
 let show2: boolean = true;
@@ -130,13 +129,3 @@ Button.addEventListener("click", (): void => {
   return;
 });
 // VIEW PASSWORD FUNCTION ENDED
-
-// SIGN-IN FUNCTION
-sgninBtn.addEventListener("click", (): void => {
-  setTimeout((): void => {
-    window.location.replace("index.html");
-    return;
-  }, 1000);
-  return;
-});
-// SIGN-IN ENDED
