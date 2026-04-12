@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <div class="loader-cont">
+        <div class="loader"></div>
+    </div>
     <div class="login-container">
         <div class="login-card">
             <div class="login-header">
@@ -20,7 +23,7 @@
                         <input type="email" id="email" name="email" required autocomplete="email">
                         <label for="email">Email</label>
                     </div>
-                    <span class="error-message" id="emailError"></span>
+                    <span class="error-message" id="emailError">please enter correct email id</span>
                 </div>
 
                 <div class="form-group">
@@ -31,7 +34,7 @@
                             <span class="toggle-icon"></span>
                         </button>
                     </div>
-                    <span class="error-message" id="passwordError"></span>
+                    <span class="error-message" id="passwordError">enter correct password</span>
                 </div>
 
                 <div class="form-options">
@@ -47,12 +50,11 @@
 
                 <button type="submit" class="login-btn">
                     <span class="btn-text">Sign In</span>
-                    <span class="btn-loader"></span>
                 </button>
             </form>
 
             <div class="signup-link">
-                <p>Don't have an account? <a href="#">Create one</a></p>
+                <p>Don't have an account? <a href="./signup.html">Create one</a></p>
             </div>
 
             <div class="success-message" id="successMessage">
@@ -63,8 +65,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
+<script type="module" src="./js/login.js"></script>
 </html>
 
 <!-- HTML DONE -->
