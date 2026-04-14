@@ -6,8 +6,8 @@ let spanError = document.querySelectorAll(".spanErr");
 let show1 = true;
 let show2 = true;
 let tickCheck = false;
-Details[4].addEventListener("change", () => {
-    if (Details[4].checked) {
+Details[5].addEventListener("change", () => {
+    if (Details[5].checked) {
         tickCheck = true;
     }
     else {
@@ -18,7 +18,7 @@ Details[4].addEventListener("change", () => {
 Button.addEventListener("click", () => {
     let count = 0, passCount = 0, checkBox = 0;
     for (let i = 0; i < Details.length - 1; i++) {
-        //Count value 4 if all have values
+        //Count value 5 if all have values
         if (Details[i].value !== "") {
             count++;
         }
@@ -29,7 +29,7 @@ Button.addEventListener("click", () => {
         passCount++;
     }
     if (tickCheck) {
-        if (count === 4 && passCount === 1) {
+        if (count === 5 && passCount === 1) {
             loader.style.display = "flex";
             setTimeout(() => {
                 for (let i = 0; i < spanError.length; i++) {
@@ -41,6 +41,7 @@ Button.addEventListener("click", () => {
                         name: Details[0].value,
                         email: Details[1].value.trim(),
                         password: Details[2].value.trim(),
+                        salary: Number(Details[4].value.trim()),
                         transactions: [],
                     };
                     usersData.push(user);
@@ -65,6 +66,7 @@ Button.addEventListener("click", () => {
                             name: Details[0].value,
                             email: Details[1].value.trim(),
                             password: Details[2].value.trim(),
+                            salary: Number(Details[4].value.trim()),
                             transactions: [],
                         };
                         userArray.push(user);
@@ -80,10 +82,11 @@ Button.addEventListener("click", () => {
             for (let i = 0; i < spanError.length; i++) {
                 spanError[i].style.display = "block";
             }
+            alert("Check your email or password");
         }
     }
     else {
-        spanError[4].style.display = "block";
+        spanError[5].style.display = "block";
     }
     return;
 });
