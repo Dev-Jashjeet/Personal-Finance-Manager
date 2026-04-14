@@ -10,11 +10,12 @@ interface userData {
   name: string;
   email: string;
   password: string;
+  salary: number;
   transactions: Array<object>;
 }
 
-Details[4]!.addEventListener("change", () => {
-  if ((Details[4]! as HTMLInputElement).checked) {
+Details[5]!.addEventListener("change", () => {
+  if ((Details[5]! as HTMLInputElement).checked) {
     tickCheck = true;
   } else {
     tickCheck = false;
@@ -27,7 +28,7 @@ Button.addEventListener("click", (): void => {
     passCount = 0,
     checkBox = 0;
   for (let i = 0; i < Details.length - 1; i++) {
-    //Count value 4 if all have values
+    //Count value 5 if all have values
     if ((Details[i]! as HTMLInputElement).value !== "") {
       count++;
     }
@@ -40,7 +41,7 @@ Button.addEventListener("click", (): void => {
     passCount++;
   }
   if (tickCheck) {
-    if (count === 4 && passCount === 1) {
+    if (count === 5 && passCount === 1) {
       loader.style.display = "flex";
       setTimeout((): void => {
         for (let i = 0; i < spanError.length; i++) {
@@ -52,16 +53,18 @@ Button.addEventListener("click", (): void => {
             name: (Details[0]! as HTMLInputElement).value,
             email: (Details[1]! as HTMLInputElement).value.trim(),
             password: (Details[2]! as HTMLInputElement).value.trim(),
+            salary: Number((Details[4]! as HTMLInputElement).value.trim()),
             transactions: [],
           };
           usersData.push(user);
           let strUserData = JSON.stringify(usersData);
           localStorage.setItem(`usersDetails`, strUserData);
           window.location.replace("dashboard.html");
-        } else {
+        } 
+        else {
           let check = 0;
           let strUserData: string =
-            localStorage.getItem("usersDetails") || "[]";
+          localStorage.getItem("usersDetails") || "[]";
           let userArray: userData[] = JSON.parse(strUserData);
           for (let user in userArray) {
             if (
@@ -74,10 +77,11 @@ Button.addEventListener("click", (): void => {
             }
           }
           if (check === 0) {
-            let user: Required<userData> = {
+            let user: userData = {
               name: (Details[0]! as HTMLInputElement).value,
               email: (Details[1]! as HTMLInputElement).value.trim(),
               password: (Details[2]! as HTMLInputElement).value.trim(),
+              salary: Number((Details[4]! as HTMLInputElement).value.trim()),
               transactions: [],
             };
             userArray.push(user);
@@ -93,10 +97,11 @@ Button.addEventListener("click", (): void => {
       for (let i = 0; i < spanError.length; i++) {
         (spanError[i]! as HTMLSpanElement).style.display = "block";
       }
+      alert("Check your email or password");
     }
   } 
   else {
-    (spanError[4]! as HTMLSpanElement).style.display = "block";
+    (spanError[5]! as HTMLSpanElement).style.display = "block";
   }
   return;
 });
