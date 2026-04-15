@@ -7,7 +7,6 @@ interface userDetails {
     email: string,
     password: string,
 };
-
 button.addEventListener('click', (e): void => {
     e.preventDefault();
     let count: number = 0;
@@ -22,6 +21,13 @@ button.addEventListener('click', (e): void => {
                         loader.style.display = "none";
                         alert("Access Guranteed");
                         window.location.replace("dashboard.html");
+                        count++;
+                        return;
+                    }
+                    if(userDetail.email === email.value &&  userDetail.password !== password.value) {
+                        loader.style.display = "none";
+                        (emailPassError[1]! as HTMLSpanElement).style.opacity = "1";
+                        (emailPassError[1]! as HTMLSpanElement).innerHTML = `Incorrect Password`;
                         count++;
                         return;
                     }
@@ -45,6 +51,7 @@ button.addEventListener('click', (e): void => {
     }
     else {
         (emailPassError[0] as HTMLSpanElement).style.opacity = "1";
+        (emailPassError[1]! as HTMLSpanElement).innerHTML = `Enter valid password`;
         (emailPassError[1] as HTMLSpanElement).style.opacity = "1";
     }
     return;
