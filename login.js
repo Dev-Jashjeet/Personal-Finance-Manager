@@ -21,6 +21,13 @@ button.addEventListener('click', (e) => {
                         count++;
                         return;
                     }
+                    if (userDetail.email === email.value && userDetail.password !== password.value) {
+                        loader.style.display = "none";
+                        emailPassError[1].style.opacity = "1";
+                        emailPassError[1].innerHTML = `Incorrect Password`;
+                        count++;
+                        return;
+                    }
                 }
                 if (count === 0) {
                     loader.style.display = "none";
@@ -41,6 +48,7 @@ button.addEventListener('click', (e) => {
     }
     else {
         emailPassError[0].style.opacity = "1";
+        emailPassError[1].innerHTML = `Enter valid password`;
         emailPassError[1].style.opacity = "1";
     }
     return;
