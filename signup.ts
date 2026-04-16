@@ -97,7 +97,6 @@ Button.addEventListener("click", (): void => {
       for (let i = 0; i < spanError.length; i++) {
         (spanError[i]! as HTMLSpanElement).style.display = "block";
       }
-      alert("Check your email or password");
     }
   } 
   else {
