@@ -19,7 +19,6 @@ button.addEventListener('click', (e): void => {
                 for(let userDetail of userDetailsObj) {
                     if(userDetail.email === email.value && userDetail.password === password.value) {
                         loader.style.display = "none";
-                        alert("Access Guranteed");
                         window.location.replace("dashboard.html");
                         count++;
                         return;
