@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackDeck Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="./dashboard.css" />
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-box">
+        <div class="logo-icon">
+          <i class="fa-solid fa-wallet"></i>
+        </div>
+        <div>
+          <h2>TrackDeck</h2>
+          <p>Finance Manager</p>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#" class="nav-item active">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item">
+          <i class="fa-regular fa-rectangle-list"></i>
+          <span>Transactions</span>
+        </a>
+
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-chart-simple"></i>
+          <span>Reports</span>
+        </a>
+
+      </nav>
+
+      <div class="sidebar-profile">
+        <div class="profile-img">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
+        </div>
+        <div>
+          <h4>Jashjeet Singh</h4>
+          <p>jashjeet@example.com</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <h1>Welcome, Jashjeet!</h1>
+
+        <button class="logout-btn theme-mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+
+        <div class="topbar-right">
+          <button class="logout-btn">
+            Logout
+          </button>
+
+          <div class="top-avatar">
+            <img src="https://i.pravatar.cc/100?img=12" alt="Avatar">
+          </div>
+        </div>
+      </header>
+
+      <!-- Cards -->
+      <section class="summary-cards">
+        <div class="card balance-card">
+          <div class="card-top">
+            <div class="card-icon blue">
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+            <span>Total Balance</span>
+          </div>
+          <h2>₹5,750</h2>
+        </div>
+
+        <div class="card income-card">
+          <div class="card-top">
+            <div class="card-icon green">
+              <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+            <span>Monthly Income</span>
+          </div>
+          <h2>₹3,000</h2>
+        </div>
+
+        <div class="card expense-card">
+          <div class="card-top">
+            <div class="card-icon red">
+              <i class="fa-solid fa-circle-arrow-down"></i>
+            </div>
+            <span>Monthly Expenses</span>
+          </div>
+          <h2>₹1,200</h2>
+        </div>
+
+        <div class="card savings-card">
+          <div class="card-top">
+            <div class="card-icon light-green">
+              <i class="fa-solid fa-piggy-bank"></i>
+            </div>
+            <span>Savings</span>
+          </div>
+          <h2>₹4,550</h2>
+        </div>
+      </section>
+
+      <!-- Add Transaction -->
+      <section class="panel add-transaction">
+        <h2>Add New Transaction</h2>
+
+        <div class="form-row">
+          <input type="text" placeholder="Amount" id="Amount">
+          
+          <select id="transaction">
+            <option>Income / Expense</option>
+            <option>Income</option>
+            <option>Expense</option>
+          </select>
+
+          <input type="date" id="date">
+
+          <button>Add Transaction</button>
+        </div>
+      </section>
+
+      <!-- Transactions -->
+      <section class="transactions-section">
+        <div class="section-head">
+          <h2>Recent Transactions</h2>
+          <a href="#">View All</a>
+        </div>
+
+        <div class="panel table-panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Type</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>05/20/2024</td>
+                <td>₹50.00</td>
+                <td>Groceries</td>
+                <td>Expense</td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+
+              <tr>
+                <td>05/18/2024</td>
+                <td>₹200.00</td>
+                <td>Salary</td>
+                <td>Income</td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+
+              <tr>
+                <td>05/17/2024</td>
+                <td>₹80.00</td>
+                <td>Transport</td>
+                <td>Expense</td>
+                <td><button class="delete-btn">Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Bottom Charts -->
+      <section class="bottom-grid">
+        <div class="panel chart-panel">
+          <h2>Spending Overview</h2>
+
+          <div class="fake-line-chart">
+            <div class="line-grid"></div>
+            <svg viewBox="0 0 600 220" preserveAspectRatio="none">
+              <polyline
+                points="20,170 110,130 200,125 290,75 380,90 470,45 560,55"
+                fill="none"
+                stroke="#7CFF9B"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <div class="x-axis">
+              <span>Week 1</span>
+              <span>Week 2</span>
+              <span>Week 3</span>
+              <span>Week 4</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel doughnut-panel">
+          <h2>Expense Breakdown</h2>
+
+          <div class="doughnut-wrapper">
+            <div class="legend">
+              <div><span class="dot blue-dot"></span> Food</div>
+              <div><span class="dot orange-dot"></span> Travel</div>
+              <div><span class="dot red-dot"></span> Bills</div>
+              <div><span class="dot purple-dot"></span> Other</div>
+            </div>
+
+            <div class="doughnut-chart"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
