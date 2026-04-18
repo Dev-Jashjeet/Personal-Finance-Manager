@@ -15,6 +15,7 @@ button.addEventListener('click', (e) => {
                 const userDetailsObj = JSON.parse(userDetailsStr);
                 for (let userDetail of userDetailsObj) {
                     if (userDetail.email === email.value && userDetail.password === password.value) {
+                        sessionStorage.setItem("loginemail", userDetail.email);
                         loader.style.display = "none";
                         window.location.replace("dashboard.html");
                         count++;
