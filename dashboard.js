@@ -1,7 +1,8 @@
 let userProfileName = document.querySelectorAll(".userprofile");
 let logoutBtn = document.querySelectorAll(".logout-btn");
 let BMESCont = document.querySelectorAll(".BMEScont");
-let Person;
+let transactionBtn = document.querySelector(".add-TransactionBtn");
+let Person; // Main user Object where all calculations take place
 // Function that return Login User object
 function getUserData() {
     const loginUserEmail = sessionStorage.getItem("loginemail");
@@ -13,9 +14,23 @@ function getUserData() {
     }
     throw new Error("User not found");
 }
+// Function for top BMES Blocks to show balance,amount etc on boxes
+function getBMES(Person) {
+    if (Person.transactions.length === 0) { // If new user login and he do not added any transactions
+        BMESCont[0].innerHTML = `₹${String(Person.salary)}`;
+        BMESCont[1].innerHTML = `₹${String(Person.salary)}`;
+        BMESCont[2].innerHTML = "₹0";
+        BMESCont[3].innerHTML = "₹0";
+    }
+    else {
+        // When transaction length is not zero
+    }
+    return;
+}
 // Function when page reloads
 (function reload() {
     Person = getUserData();
+    getBMES(Person); // Calling getBMES
     userProfileName[0].innerHTML = Person.name;
     userProfileName[1].innerHTML = Person.email;
     userProfileName[2].innerHTML = `Welcome, ${(Person.name).split(" ")[0]}!`;
@@ -24,5 +39,58 @@ function getUserData() {
 logoutBtn[1].addEventListener('click', () => {
     sessionStorage.clear();
     window.location.replace("index.html");
+    return;
+});
+//Function when user wants to add transaction by clicking transaction button
+transactionBtn.addEventListener("click", () => {
+    let AID = document.querySelectorAll(".add-Transaction");
+    const tBody = document.querySelector("#table-body");
+    let amount;
+    if (Number(AID[0].value) > 0 && AID[1].value !== "Income / Expense" && AID[2].value !== "") {
+        amount = Number(AID[0].value);
+        // This is the area that adds the desired transaction added in list -->
+        let transType = AID[1].value;
+        let trow = document.createElement("tr");
+        let tdes0 = document.createElement("td");
+        let tdes1 = document.createElement("td");
+        let tdes2 = document.createElement("td");
+        let tdes3 = document.createElement("td");
+        let tdes4 = document.createElement("td");
+        let delbtn = document.createElement("button");
+        tdes0.innerHTML = `${AID[2].value}`;
+        tdes1.innerHTML = `₹ ${AID[0].value}`;
+        tdes2.innerHTML = `Grocies`;
+        tdes3.innerHTML = `${transType}`;
+        delbtn.innerHTML = "Delete";
+        delbtn.classList.add("delete-btn");
+        tdes4.appendChild(delbtn);
+        tdes4.appendChild(delbtn);
+        trow.appendChild(tdes0);
+        trow.appendChild(tdes1);
+        trow.appendChild(tdes2);
+        trow.appendChild(tdes3);
+        trow.appendChild(tdes4);
+        tBody.appendChild(trow);
+        // Local updation to Local Storage --->
+        // let newTransaction: transaction = {
+        //   date: tdes0.innerHTML,
+        //   amount: Number((AID[0]! as HTMLInputElement).value),
+        //   type: tdes3.innerHTML as "income"|"expense",
+        // }
+        // Person.transactions.push(newTransaction);
+        // let usersDetails: user[] = JSON.parse(localStorage.getItem("usersDetails")!);
+        // for(let user of usersDetails) {
+        //     if(user.email === Person.email) {
+        //         user.transactions = Person.transactions;
+        //         break;
+        //     }
+        // }
+        // localStorage.setItem("usersDetails", JSON.stringify(usersDetails));
+        //---------< Area completed
+        AID[0].value = "";
+        AID[1].value = "Income / Expense";
+        AID[2].value = "";
+        // ------< Area completed
+    }
 });
 export {};
