@@ -54,8 +54,8 @@
           <img src="https://i.pravatar.cc/100?img=12" alt="Profile">
         </div>
         <div>
-          <h4 class="userprofile">Jashjeet Singh</h4>
-          <p class="userprofile">jashjeet@example.com</p>
+          <h4 class="userprofile">Hello User</h4>
+          <p class="userprofile">User email</p>
         </div>
       </div>
     </aside>
@@ -91,7 +91,7 @@
             </div>
             <span>Total Balance</span>
           </div>
-          <h2 class="BMEScont">₹5,750</h2>
+          <h2 class="BMEScont"></h2>
         </div>
 
         <div class="card income-card">
@@ -101,7 +101,7 @@
             </div>
             <span>Monthly Income</span>
           </div>
-          <h2 class="BMEScont">₹3,000</h2>
+          <h2 class="BMEScont"></h2>
         </div>
 
         <div class="card expense-card">
@@ -111,7 +111,7 @@
             </div>
             <span>Monthly Expenses</span>
           </div>
-          <h2 class="BMEScont">₹1,200</h2>
+          <h2 class="BMEScont"></h2>
         </div>
 
         <div class="card savings-card">
@@ -121,7 +121,7 @@
             </div>
             <span>Savings</span>
           </div>
-          <h2 class="BMEScont">₹4,550</h2>
+          <h2 class="BMEScont"></h2>
         </div>
       </section>
 
@@ -130,17 +130,17 @@
         <h2>Add New Transaction</h2>
 
         <div class="form-row">
-          <input type="text" placeholder="Amount" id="Amount">
+          <input type="number" placeholder="Amount" id="Amount" class="add-Transaction">
           
-          <select id="transaction">
+          <select id="transaction" class="add-Transaction">
             <option>Income / Expense</option>
             <option>Income</option>
             <option>Expense</option>
           </select>
 
-          <input type="date" id="date">
+          <input type="date" id="date" class="add-Transaction">
 
-          <button>Add Transaction</button>
+          <button class="add-TransactionBtn">Add Transaction</button>
         </div>
       </section>
 
@@ -163,30 +163,8 @@
               </tr>
             </thead>
 
-            <tbody>
-              <tr>
-                <td>05/20/2024</td>
-                <td>₹50.00</td>
-                <td>Groceries</td>
-                <td>Expense</td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-
-              <tr>
-                <td>05/18/2024</td>
-                <td>₹200.00</td>
-                <td>Salary</td>
-                <td>Income</td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
-
-              <tr>
-                <td>05/17/2024</td>
-                <td>₹80.00</td>
-                <td>Transport</td>
-                <td>Expense</td>
-                <td><button class="delete-btn">Delete</button></td>
-              </tr>
+            <tbody id="table-body">
+              <!-- Transactions list -->
             </tbody>
           </table>
         </div>
