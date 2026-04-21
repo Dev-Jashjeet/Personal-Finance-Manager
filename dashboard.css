@@ -213,9 +213,9 @@ body {
 .card-top {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 24px;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -230,7 +230,7 @@ body {
 }
 
 .card h2 {
-  font-size: 52px;
+  font-size: 47px;
   font-weight: 700;
 }
 
@@ -310,6 +310,7 @@ body {
 .table-panel {
   padding: 0;
   overflow: hidden;
+  height: 365px;
 }
 
 table {
