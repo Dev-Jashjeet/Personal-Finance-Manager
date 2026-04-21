@@ -8,3 +8,6 @@ Personal Finance Manager is a web-based application that helps users efficiently
 *** FILTER SIGNUP PAGE CODE ;))
 *** FILTER SIGNIN PAGE CODE ;))
 *** DASHBOARD STARTEDBUILDING ;)
+*** LOCAL STORAGE ADDED;
+*** USER ADDS TRANSACTION;
+*** TRANSACTION LIST ADDED & RELOADS AT RELOAD;
