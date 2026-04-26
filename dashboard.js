@@ -1,7 +1,8 @@
-let userProfileName = document.querySelectorAll(".userprofile");
-let logoutBtn = document.querySelectorAll(".logout-btn");
-let BMESCont = document.querySelectorAll(".BMEScont");
-let transactionBtn = document.querySelector(".add-TransactionBtn");
+const userProfileName = document.querySelectorAll(".userprofile");
+const logoutBtn = document.querySelectorAll(".logout-btn");
+const BMESCont = document.querySelectorAll(".BMEScont");
+const transactionBtn = document.querySelector(".add-TransactionBtn");
+const body = document.querySelector("body");
 let Person; // Main user Object where all calculations take place
 // Function that return Login User object
 function getUserData() {
@@ -96,7 +97,6 @@ transactionBtn.addEventListener("click", () => {
         AID[0].value = "";
         AID[1].value = "Income / Expense";
         AID[2].value = "";
-        console.log(Person.transactions.length);
         // ------< Area completed
     }
     return;
@@ -118,7 +118,7 @@ function updateBMES(data) {
     const totalBalance = data.totalBalance;
     const totalIncome = data.totalIncome;
     const totalExpense = data.totalExpense;
-    BMESCont[0].innerHTML = `₹ ${Person.salary + totalBalance}`;
+    BMESCont[0].innerHTML = `₹ ${(Person.salary + totalBalance < 0) ? 0 : Person.salary + totalBalance}`;
     BMESCont[1].innerHTML = `₹ ${data.totalIncome}`;
     BMESCont[2].innerHTML = `₹ ${totalExpense}`;
     BMESCont[3].innerHTML = `₹ ${Person.salary}`;
@@ -152,13 +152,38 @@ function transactionList(Person) {
     return;
 }
 ;
-// Clear transaction list array from local Storage
-// FOR TRIAL ONLY
-function clear(Person) {
-    let a = Person.transactions;
-    for (let i = 0; i < a.length; i++) {
-        a.pop();
+// When User clicks delete button the DOM list deleted
+body.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.classList.contains("delete-btn")) {
+        const row = target.closest("tr");
+        const date = row.children[0].textContent;
+        const amount = row.children[1].textContent;
+        // const category = row.children[2]!.textContent;
+        const type = row.children[3].textContent;
+        const tempTransaction = {
+            date: date,
+            amount: Number(amount.replace("₹", "")),
+            type: type,
+        };
+        // re-evaluate the amount, savings etc
+        reEvaluate(Person, tempTransaction);
+        row.remove();
+        return;
     }
+    return;
+});
+// Deletion of transaction list when user clicks DELETE button and updation to local storage
+function reEvaluate(Person, tempTransaction) {
+    const arr = Person.transactions;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].amount === tempTransaction.amount && arr[i].date === tempTransaction.date && arr[i].type === tempTransaction.type) {
+            arr.splice(i, 1);
+        }
+    }
+    Person.transactions = arr;
+    getBMES(Person);
+    // Local updation to Local Storage --->
     const usersDetails = JSON.parse(localStorage.getItem("usersDetails"));
     for (const user of usersDetails) {
         if (user.email === Person.email) {
@@ -167,6 +192,6 @@ function clear(Person) {
         }
     }
     localStorage.setItem("usersDetails", JSON.stringify(usersDetails));
+    // ---------< Area completed
     return;
 }
-export {};
