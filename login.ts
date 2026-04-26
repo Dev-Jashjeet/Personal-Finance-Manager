@@ -4,8 +4,8 @@ const button = document.querySelector(".login-btn")! as HTMLButtonElement;
 let emailPassError = document.querySelectorAll(".error-message")! ;
 let loader = document.querySelector(".loader-cont")! as HTMLDivElement;
 interface userDetails {
-    email: string,
-    password: string,
+    readonly email: string,
+    readonly password: string,
 };
 button.addEventListener('click', (e): void => {
     e.preventDefault();
