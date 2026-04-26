@@ -7,11 +7,11 @@ let show1: boolean = true;
 let show2: boolean = true;
 let tickCheck: boolean = false;
 interface userData {
-  name: string;
-  email: string;
-  password: string;
-  salary: number;
-  transactions: Array<object>;
+  readonly name: string;
+  readonly email: string;
+  readonly password: string;
+  readonly salary: number;
+  readonly transactions: Array<object>;
 }
 
 Details[5]!.addEventListener("change", () => {
