@@ -16,6 +16,7 @@ interface calData {
     readonly totalExpense: number,
 }
 type income = "Income"|"Expense";
+const logoBox = document.querySelector(".logo-box")! as HTMLDivElement;
 const userProfileName = document.querySelectorAll(".userprofile")! ;
 const logoutBtn = document.querySelectorAll(".logout-btn")! ;
 const BMESCont = document.querySelectorAll(".BMEScont")! ;
