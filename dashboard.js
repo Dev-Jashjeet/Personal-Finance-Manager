@@ -1,3 +1,4 @@
+const logoBox = document.querySelector(".logo-box");
 const userProfileName = document.querySelectorAll(".userprofile");
 const logoutBtn = document.querySelectorAll(".logout-btn");
 const BMESCont = document.querySelectorAll(".BMEScont");
@@ -39,6 +40,10 @@ function getBMES(Person) {
     userProfileName[2].innerHTML = `Welcome, ${(Person.name).split(" ")[0]}!`;
     return;
 })();
+// Function when user clicks web icon so the page reloads
+logoBox.addEventListener("click", () => {
+    window.location.assign("dashboard.html");
+});
 //Function when user click logout
 logoutBtn[1].addEventListener('click', () => {
     sessionStorage.clear();
