@@ -61,6 +61,11 @@ function getBMES(Person: user): void {
     return;
 }) ();
 
+// Function when user clicks web icon so the page reloads
+logoBox.addEventListener("click", (): void => {
+    window.location.assign("dashboard.html");
+});
+
 //Function when user click logout
 (logoutBtn[1] as HTMLButtonElement).addEventListener('click', (): void => {
     sessionStorage.clear();
