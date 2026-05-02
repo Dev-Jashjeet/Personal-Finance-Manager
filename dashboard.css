@@ -294,6 +294,10 @@ body {
 }
 
 /* Transactions */
+.viewAll:hover {
+  color: #6a97f0;
+}
+
 .transactions-section {
   margin-bottom: 28px;
 }
