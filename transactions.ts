@@ -20,23 +20,45 @@ function HideShow(click: boolean): void {
 
 // Function when user clicks sidebar transaction button
 (sidebarsButton[1] as HTMLAnchorElement).addEventListener("click", (): void => {
+    for(let btns of sidebarsButton) {
+        btns.classList.remove("active");
+    }
+    (sidebarsButton[1] as HTMLElement).classList.add("active");
     HideShow(click);
     return;
 });
 
 // Function when user click viewAll in dashboard
 viewAll.addEventListener("click", (): void => {
+    for(let btns of sidebarsButton) {
+        btns.classList.remove("active");
+    }
+    (sidebarsButton[1] as HTMLElement).classList.add("active");
     HideShow(click);
     return;
 });
 
 // Function when user clicks sidebar dashboard button
 (sidebarsButton[0] as HTMLAnchorElement).addEventListener("click", (): void => {
+    for(let btns of sidebarsButton) {
+        btns.classList.remove("active");
+    }
+    (sidebarsButton[0] as HTMLElement).classList.add("active");
     transactionListHeight.style.height = "365px";
     transactionListHeight.style.overflow = "hidden";
     for(let element of transactionBodyElements) {
         (element as HTMLElement).style.display = "";
     }
     click = false;
+    return;
+});
+
+// Function when user click reports button on side bar
+(sidebarsButton[2] as HTMLElement).addEventListener("click", (): void => {
+    for(let btns of sidebarsButton) {
+        btns.classList.remove("active");
+    }
+    (sidebarsButton[2] as HTMLElement).classList.add("active");
+    // Function implementation left
     return;
 });
